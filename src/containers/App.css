@@ -28,11 +28,20 @@ aside > button {
   background: none;
   font-size: 1em;
 }
+button:focus {
+  background: #f1d592; 
+  outline: 0;
+}
+button:not(:focus) {
+  background: #eee;
+}
+
 footer {
   text-align: center;
   font-size: 14px;
   color: #555;
 }
+
 /*CSS Grid*/
 /*==========================================*/
 .App {
