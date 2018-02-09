@@ -12,6 +12,9 @@ class App extends Component {
     this.onClick = this.onClick.bind(this);
   }
   render() {
+    let render = null;
+
+
     return (
       <div className="App">
         <header>
@@ -23,7 +26,9 @@ class App extends Component {
           <button value="portfolio" onClick={this.onClick}>PORTFOLIO</button>
           <button value="contact" onClick={this.onClick}>CONTACT</button>
         </aside>
-        <main id="children"></main>
+        <main id="children">
+          {render}
+        </main>
         <footer><p>© 2018 EVA LIEU</p></footer>
       </div>
     );
@@ -34,7 +39,7 @@ class App extends Component {
     var insertHere = document.getElementById("children");
     
     var something = this.pushChildren(childValue);
-    insertHere.push(<About/>);
+    insertHere.push('<About/>');
     console.log(something);
   }
   pushChildren(value) {
