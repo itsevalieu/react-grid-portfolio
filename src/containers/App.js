@@ -41,13 +41,26 @@ const projects = [
     description: "Twitterbot tweets"
   }
 ];
-const listItems = projects.map((project) =>
-  <button>
-    <Link 
-      to='/'>{project}
-    </Link>
-  </button>
-);
+// const gallery = () => (
+//   <div>
+//     {projects.map(i => (
+//       <Link
+//         key={i.id}
+//         to={{
+//           pathname: `/project/${i.id}`
+//         }}
+//       >
+//       </Link>
+//     ))}
+//   </div>
+// );
+// const listItems = projects.map((project) =>
+//   <button>
+//     <Link 
+//       to='/'>{project}
+//     </Link>
+//   </button>
+// );
 class App extends Component {
   render() {
  
@@ -61,7 +74,7 @@ class App extends Component {
           <aside>
               <button><Link to='/'>ABOUT</Link></button>
               <button><Link to='/portfolio'>PORTFOLIO</Link></button>
-                <ul>{listItems}</ul>
+              {/*<ul>{listItems}</ul>*/}
               <button><Link to='/contact'>CONTACT</Link></button>
           </aside>
           <main id="children">
