@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Project.css";
 
 class Project extends Component {
+  
   render() {
     return(
       <div className="project">
@@ -14,6 +15,7 @@ class Project extends Component {
         </div>
         <div><p>Languages and Stack</p></div>
         <div><iframe src="#" alt="#"/></div>
+        <a href="#">Demo</a>
       </div>
     );
   }

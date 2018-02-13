@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import "./Portfolio.css";
+import "./Projects.jsx";
 
 class Portfolio extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      projects: []
+    };
+    this.onClick = this.onClick.bind(this);
+  }
   render() {
     return(
       <div className="portfolio">
@@ -23,3 +31,7 @@ class Portfolio extends Component {
 }
 
 export default Portfolio;
+// App -> Porfolio Gallery -> Individual Project Page
+// Projects Array in App, parsed to Portfolio
+// Clicking on Portfolio Gallery will render individual Project Pages
+// parent is app
