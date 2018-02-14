@@ -23,24 +23,7 @@ const routes = [
     main: () => <Contact/>
   }
 ];
-const projects = [
-  { id: 1, 
-    name: "Twitter Bot",
-    description: "Twitterbot tweets"
-  },
-  { id: 2, 
-    name: "Drink Generator",
-    description: "Twitterbot tweets"
-  },
-  { id: 3, 
-    name: "NYT API",
-    description: "Twitterbot tweets"
-  },
-  { id: 4, 
-    name: "Teafographic",
-    description: "Twitterbot tweets"
-  }
-];
+
 // const gallery = () => (
 //   <div>
 //     {projects.map(i => (
@@ -61,9 +44,35 @@ const projects = [
 //     </Link>
 //   </button>
 // );
+
 class App extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      projects: [
+        { id: 1, 
+          name: "Twitter Bot",
+          description: "Twitterbot tweets"
+        },
+        { id: 2, 
+          name: "Drink Generator",
+          description: "Twitterbot tweets"
+        },
+        { id: 3, 
+          name: "NYT API",
+          description: "Twitterbot tweets"
+        },
+        { id: 4, 
+          name: "Teafographic",
+          description: "Twitterbot tweets"
+        }
+      ]
+    }
+  }
+  Project(props) {
+    return <button>{props.projects[0]}</button>
+  }
   render() {
- 
     return (
       <Router>
         <div className="App">
@@ -86,6 +95,7 @@ class App extends Component {
                 component={route.main}
               />
             ))}
+            <Project/>
           </main>
           <footer><p>© 2018 EVA LIEU</p></footer>
         </div>

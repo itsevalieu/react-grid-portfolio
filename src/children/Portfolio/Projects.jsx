@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./Project.css";
+import "./Projects.css";
 
 class Project extends Component {
-  
+
   render() {
     return(
       <div className="project">

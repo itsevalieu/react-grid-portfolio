@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import "./Portfolio.css";
-import "./Projects.jsx";
+import Project from "./Projects.jsx";
 
 class Portfolio extends Component {
   constructor(props) {
     super();
-    this.state = {
-      projects: []
-    };
-    this.onClick = this.onClick.bind(this);
+    // this.onClick = this.onClick.bind(this);
   }
   render() {
     return(
