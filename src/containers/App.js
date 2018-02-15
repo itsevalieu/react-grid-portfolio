@@ -1,55 +1,106 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link
+} from 'react-router-dom';
 import './App.css';
 import hamburger from './hamburger.png';
 import About from '../children/About/About.jsx';
 import Portfolio from '../children/Portfolio/Portfolio.jsx';
 import Contact from '../children/Contact/Contact.jsx';
 
+const routes = [
+  { path: '/',
+    exact: true, 
+    main: () => <About/>
+  },
+  { path: '/portfolio',
+    main: () => <Portfolio/>
+  },
+  { path: '/contact',
+    main: () => <Contact/>
+  }
+];
+
+// const gallery = () => (
+//   <div>
+//     {projects.map(i => (
+//       <Link
+//         key={i.id}
+//         to={{
+//           pathname: `/project/${i.id}`
+//         }}
+//       >
+//       </Link>
+//     ))}
+//   </div>
+// );
+// const listItems = projects.map((project) =>
+//   <button>
+//     <Link 
+//       to='/'>{project}
+//     </Link>
+//   </button>
+// );
+
 class App extends Component {
   constructor(props) {
-    super(props);
-    this.pushChildren = this.pushChildren.bind(this);
-    this.onClick = this.onClick.bind(this);
-  }
-  render() {
-    let render = null;
-
-
-    return (
-      <div className="App">
-        <header>
-          <h1>EL PORTFOLIO</h1>
-          <button className="hamburger-icon"><img src={hamburger} alt="hamburger icon"/></button>
-        </header>
-        <aside>
-          <button value="about" onClick={this.onClick}>ABOUT</button>
-          <button value="portfolio" onClick={this.onClick}>PORTFOLIO</button>
-          <button value="contact" onClick={this.onClick}>CONTACT</button>
-        </aside>
-        <main id="children">
-          {render}
-        </main>
-        <footer><p>© 2018 EVA LIEU</p></footer>
-      </div>
-    );
-  }
-  onClick(e) {
-    var childValue = e.target.value;
-    console.log(childValue);
-    var insertHere = document.getElementById("children");
-    
-    var something = this.pushChildren(childValue);
-    insertHere.push('<About/>');
-    console.log(something);
-  }
-  pushChildren(value) {
-    if(value === "about") {
-      return '<About/>';
-    } else if (value === "portfolio") {
-      return '<Portfolio/>';
-    } else {
-      return '<Contact/>';
+    super();
+    this.state = {
+      projects: [
+        { id: 1, 
+          name: "Twitter Bot",
+          description: "Twitterbot tweets"
+        },
+        { id: 2, 
+          name: "Drink Generator",
+          description: "Twitterbot tweets"
+        },
+        { id: 3, 
+          name: "NYT API",
+          description: "Twitterbot tweets"
+        },
+        { id: 4, 
+          name: "Teafographic",
+          description: "Twitterbot tweets"
+        }
+      ]
     }
+  }
+  Project(props) {
+    return <button>{props.projects[0]}</button>
+  },
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <header>
+            <h1>EL PORTFOLIO</h1>
+            <button className="hamburger-icon"><img src={hamburger} alt="hamburger icon"/></button>
+          </header>
+          <aside>
+              <button><Link to='/'>ABOUT</Link></button>
+              <button><Link to='/portfolio'>PORTFOLIO</Link></button>
+              {/*<ul>{listItems}</ul>*/}
+              <button><Link to='/contact'>CONTACT</Link></button>
+          </aside>
+          <main id="children">
+            {routes.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                component={route.main}
+              />
+            ))}
+            <Project {state.projects}/>
+          </main>
+          <footer><p>© 2018 EVA LIEU</p></footer>
+        </div>
+      </Router>
+    );
   }
 }
 
