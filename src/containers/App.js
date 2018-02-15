@@ -71,7 +71,7 @@ class App extends Component {
   }
   Project(props) {
     return <button>{props.projects[0]}</button>
-  }
+  },
   render() {
     return (
       <Router>
@@ -95,7 +95,7 @@ class App extends Component {
                 component={route.main}
               />
             ))}
-            <Project/>
+            <Project {state.projects}/>
           </main>
           <footer><p>© 2018 EVA LIEU</p></footer>
         </div>
