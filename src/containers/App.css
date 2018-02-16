@@ -23,19 +23,21 @@ aside {
   display: flex;
   flex-direction: column;
 }
-aside > button {
+.aside-button {
+  border: 1px solid #ccc;
+  color: #000;
   height: 50px;
-  background: none;
   font-size: 1em;
+  text-decoration: none;
+  text-align: center;
 }
-button:focus {
+.aside-button:focus {
   background: #f1d592; 
   outline: 0;
 }
-button:not(:focus) {
+.aside-button:not(:focus) {
   background: #eee;
 }
-
 footer {
   text-align: center;
   font-size: 14px;

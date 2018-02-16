@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Portfolio.css";
-import Project from "./Projects.jsx";
+// import Project from "./Projects.jsx";
 
 class Portfolio extends Component {
   constructor(props) {

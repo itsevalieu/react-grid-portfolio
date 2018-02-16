@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
   Link
 } from 'react-router-dom';
 import './App.css';
@@ -10,6 +9,7 @@ import hamburger from './hamburger.png';
 import About from '../children/About/About.jsx';
 import Portfolio from '../children/Portfolio/Portfolio.jsx';
 import Contact from '../children/Contact/Contact.jsx';
+import Project from '../children/Portfolio/Projects.jsx';
 
 const routes = [
   { path: '/',
@@ -24,6 +24,21 @@ const routes = [
   }
 ];
 
+const projects = [
+  { path: '/twitterbot',
+    exact: true, 
+    name: 'Twitter Bot',
+    main: () => <Project/>
+  },
+  { path: '/hypertext',
+    name: 'Hypertext',
+    main: () => <Project/>
+  },
+  { path: '/outfitted',
+    name: 'Outfitted',
+    main: () => <Project/>
+  }
+];
 // const gallery = () => (
 //   <div>
 //     {projects.map(i => (
@@ -37,18 +52,17 @@ const routes = [
 //     ))}
 //   </div>
 // );
-// const listItems = projects.map((project) =>
-//   <button>
-//     <Link 
-//       to='/'>{project}
-//     </Link>
-//   </button>
-// );
+const listItems = projects.map((project) =>
+    <Link 
+      to={project.path}>{project.name}
+    </Link>
+);
 
 class App extends Component {
   constructor(props) {
     super();
     this.state = {
+      buttonClicks: false,
       projects: [
         { id: 1, 
           name: "Twitter Bot",
@@ -68,23 +82,39 @@ class App extends Component {
         }
       ]
     }
+    this.portfolioClick = this.portfolioClick.bind(this);
+    this.listProjects = this.listProjects.bind(this);
   }
-  Project(props) {
-    return <button>{props.projects[0]}</button>
-  },
+  listProjects() {
+    console.log("portfolio clicked");
+    this.setState({
+      buttonClicks: true
+    });
+  }
+  portfolioClick(event) {
+    event.preventDefault();
+    console.log(event);
+    if(this.buttonClicks === true) {
+      console.log(this.buttonClicks);
+      return (listItems);
+    } else {
+      console.log("no");
+      console.log(this.buttonClicks);
+    }
+  }
   render() {
     return (
       <Router>
         <div className="App">
           <header>
-            <h1>EL PORTFOLIO</h1>
+            <h1>EVA LIEU</h1>
             <button className="hamburger-icon"><img src={hamburger} alt="hamburger icon"/></button>
           </header>
           <aside>
-              <button><Link to='/'>ABOUT</Link></button>
-              <button><Link to='/portfolio'>PORTFOLIO</Link></button>
-              {/*<ul>{listItems}</ul>*/}
-              <button><Link to='/contact'>CONTACT</Link></button>
+              <Link to='/' className="aside-button">ABOUT</Link>
+              <Link to='/portfolio' onClick={this.listProjects} className="aside-button">PORTFOLIO</Link>
+              {this.portfolioClick}
+              <Link to='/contact' className="aside-button">CONTACT</Link>
           </aside>
           <main id="children">
             {routes.map((route, index) => (
@@ -95,7 +125,14 @@ class App extends Component {
                 component={route.main}
               />
             ))}
-            <Project {state.projects}/>
+            {projects.map((project, index) =>(
+                <Route
+                  key={index}
+                  path={project.path}
+                  exact={project.exact}
+                  component={project.main}
+                />
+              ))}
           </main>
           <footer><p>© 2018 EVA LIEU</p></footer>
         </div>
