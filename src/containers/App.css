@@ -30,6 +30,9 @@ aside {
   font-size: 1em;
   text-decoration: none;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .aside-button:focus {
   background: #f1d592; 
@@ -60,8 +63,10 @@ aside {
   grid-row: 2 / span 2;
 }
 main {
-  grid-column: 2 / span 1;
-  grid-row: 2 / span 1;
+  grid-column: 2 / span 2;
+  grid-row: 2 / span 2;
+  display: grid;
+  width: 100%;
 }
 footer {
   grid-column: 1 / span 1;

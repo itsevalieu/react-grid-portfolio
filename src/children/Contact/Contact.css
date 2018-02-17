@@ -1,0 +1,33 @@
+.contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+	height: 50%;
+	width: 100%;
+	padding: 3em 0;
+}
+input {
+	height: 20px;
+	width: 65%;
+}
+textarea{
+	height: 50px;
+	width: 65%;
+}
+form button {
+	height: 25px;
+	width: 50%;
+}
+h1 {
+	font-size: 1.5em;
+}
