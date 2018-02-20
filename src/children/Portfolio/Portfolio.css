@@ -1,0 +1,22 @@
+.project-list {
+	display: flex;
+	justify-content: space-around;
+	flex-flow: row wrap-reverse;
+}
+.project-list button {
+	height: 250px;
+	width: 250px;
+	flex: 1 50%;
+	margin: 2em;
+	background: none;
+	padding: 0 0;
+}
+.project-list img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+.button-description {
+	position: absolute;
+	z-index: 1;
+}

@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import "./About.css";
+import cptimg from "../../containers/rawpixel-com-550994.jpg";
 
 class About extends Component {
 	render() {
 		return(
 			<div className="about">
+	            <div className="component-image"><img src={cptimg} alt="#"/></div>
 				<div className="about-image">
 					<img src='#' alt="Eva Lieu"/>
 				</div>

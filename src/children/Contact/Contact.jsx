@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Contact.css";
+import cptimg from "../../containers/abbie-bernet-237683.jpg";
 
 class Contact extends Component {
 	constructor(props) {
@@ -33,6 +34,7 @@ class Contact extends Component {
 	render() {
 		return(
 			<div className="contact">
+			 	<div className="component-image"><img src={cptimg} alt="#"/></div>
 				<form onSubmit={this.handleSubmit}>
 					<h1>Contact Me</h1>
 					<input type="text" placeholder="Full Name" name="name" value={this.state.name} onChange={this.handleChange}></input>

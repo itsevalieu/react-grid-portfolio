@@ -13,7 +13,7 @@ import Project from '../children/Portfolio/Projects.jsx';
 
 const routes = [
   { path: '/',
-    exact: true, 
+    exact: true,
     main: () => <About/>
   },
   { path: '/portfolio',
@@ -107,7 +107,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <header>
-            <h1>EVA LIEU</h1>
+            <h1>EVA L. LIEU</h1>
             <button className="hamburger-icon"><img src={hamburger} alt="hamburger icon"/></button>
           </header>
           <aside>
