@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import hamburger from './hamburger.png';
+import Home from '../children/Home/Home.jsx';
 import About from '../children/About/About.jsx';
 import Portfolio from '../children/Portfolio/Portfolio.jsx';
 import Contact from '../children/Contact/Contact.jsx';
@@ -13,6 +14,10 @@ import Project from '../children/Portfolio/Projects.jsx';
 
 const routes = [
   { path: '/',
+    exact: true,
+    main: () => <Home/>
+  },
+  { path: '/about',
     exact: true,
     main: () => <About/>
   },
@@ -111,7 +116,8 @@ class App extends Component {
             <button className="hamburger-icon"><img src={hamburger} alt="hamburger icon"/></button>
           </header>
           <aside>
-              <Link to='/' className="aside-button">ABOUT</Link>
+              <Link to='/' className="aside-button">HOME</Link> 
+              <Link to='/about' className="aside-button">ABOUT ME</Link>
               <Link to='/portfolio' onClick={this.listProjects} className="aside-button">PORTFOLIO</Link>
               {this.portfolioClick}
               <Link to='/contact' className="aside-button">CONTACT</Link>

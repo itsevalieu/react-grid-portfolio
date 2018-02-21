@@ -1,3 +1,7 @@
+.portfolio {
+	height: 100vh;
+	width: 100%;
+}
 .project-list {
 	display: flex;
 	justify-content: space-around;
@@ -6,7 +10,7 @@
 .project-list button {
 	height: 250px;
 	width: 250px;
-	flex: 1 50%;
+	flex: 1 25%;
 	margin: 2em;
 	background: none;
 	padding: 0 0;
@@ -19,4 +23,7 @@
 .button-description {
 	position: absolute;
 	z-index: 1;
+	color: #fff;
+	font-size: 1.5em;
+	border: 1px solid red;
 }
