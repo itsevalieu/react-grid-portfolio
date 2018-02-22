@@ -1,11 +1,31 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 import "./Portfolio.css";
-// import Project from "./Projects.jsx";
+
+import Project from "./Projects.jsx";
 import cptimg1 from "../../containers/pana-vasquez-441189.jpg";
 import cptimg2 from "../../containers/farrel-nobel-103393.jpg";
 import cptimg3 from "../../containers/patrick-tomasso-71909.jpg";
 import cptimg4 from "../../containers/shanna-camilleri-190745.jpg";
-
+const projects = [
+  { path: '/twitterbot',
+    exact: true, 
+    name: 'Twitter Bot',
+    main: () => <Project/>
+  },
+  { path: '/hypertext',
+    name: 'Hypertext',
+    main: () => <Project/>
+  },
+  { path: '/outfitted',
+    name: 'Outfitted',
+    main: () => <Project/>
+  }
+];
 
 class Portfolio extends Component {
   constructor(props) {
@@ -14,18 +34,21 @@ class Portfolio extends Component {
   }
   render() {
     return(
+      <Router>
       <div className="portfolio">
         <div className="page-heading">
           <h1>My Portfolio</h1>
         </div>
         <div className="project-list">
-          <button>
-            <div className="button-description">
-              <p>Twitter Sentiment Analysis Bot</p>
-              <p>Twitter bot live streaming and sentiment analysis.</p>
-            </div>
-            <img src={cptimg1} alt="#"/>
-          </button>
+          <Link to='/twitterbot'>
+            <button>
+              <div className="button-description">
+                <p>Twitter Sentiment Analysis Bot</p>
+                <p>Twitter bot live streaming and sentiment analysis.</p>
+              </div>
+              <img src={cptimg1} alt="#"/>
+            </button>
+          </Link>
           <button>
             <div className="button-description">
               <p>Drink Generator</p>
@@ -47,8 +70,10 @@ class Portfolio extends Component {
             </div>
             <img src={cptimg4} alt="#"/>
           </button>
+         
         </div>
       </div>
+      </Router>
     );
   }
 }
