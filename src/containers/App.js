@@ -148,3 +148,12 @@ class App extends Component {
 }
 
 export default App;
+
+// Seriously need to fix the states and props. What is the top down components to render?
+// App (Aside, Main)
+  // Portfolio -> Projects
+
+
+
+
+
