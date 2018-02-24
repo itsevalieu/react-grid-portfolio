@@ -11,25 +11,27 @@ import cptimg1 from "../../containers/pana-vasquez-441189.jpg";
 import cptimg2 from "../../containers/farrel-nobel-103393.jpg";
 import cptimg3 from "../../containers/patrick-tomasso-71909.jpg";
 import cptimg4 from "../../containers/shanna-camilleri-190745.jpg";
-const projects = [
-  { path: '/twitterbot',
-    exact: true, 
-    name: 'Twitter Bot',
-    main: () => <Project/>
-  },
-  { path: '/hypertext',
-    name: 'Hypertext',
-    main: () => <Project/>
-  },
-  { path: '/outfitted',
-    name: 'Outfitted',
-    main: () => <Project/>
-  }
-];
 
 class Portfolio extends Component {
   constructor(props) {
-    super();
+    super(props);
+    this.state = {
+      projects: [
+        { path: '/twitterbot',
+          exact: true, 
+          name: 'Twitter Bot',
+          main: () => <Project/>
+        },
+        { path: '/hypertext',
+          name: 'Hypertext',
+          main: () => <Project/>
+        },
+        { path: '/outfitted',
+          name: 'Outfitted',
+          main: () => <Project/>
+        }
+      ]
+    }
     // this.onClick = this.onClick.bind(this);
   }
   render() {

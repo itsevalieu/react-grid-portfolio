@@ -12,38 +12,6 @@ import Portfolio from '../children/Portfolio/Portfolio.jsx';
 import Contact from '../children/Contact/Contact.jsx';
 import Project from '../children/Portfolio/Projects.jsx';
 
-const routes = [
-  { path: '/',
-    exact: true,
-    main: () => <Home/>
-  },
-  { path: '/about',
-    exact: true,
-    main: () => <About/>
-  },
-  { path: '/portfolio',
-    main: () => <Portfolio/>
-  },
-  { path: '/contact',
-    main: () => <Contact/>
-  }
-];
-
-const projects = [
-  { path: '/twitterbot',
-    exact: true, 
-    name: 'Twitter Bot',
-    main: () => <Project/>
-  },
-  { path: '/hypertext',
-    name: 'Hypertext',
-    main: () => <Project/>
-  },
-  { path: '/outfitted',
-    name: 'Outfitted',
-    main: () => <Project/>
-  }
-];
 // const gallery = () => (
 //   <div>
 //     {projects.map(i => (
@@ -57,36 +25,49 @@ const projects = [
 //     ))}
 //   </div>
 // );
-const listItems = projects.map((project) =>
-    <Link 
-      to={project.path}>{project.name}
-    </Link>
-);
+// const listItems = this.state.projects.map((project) =>
+//     <Link 
+//       to={this.state.project.path}>{this.state.project.name}
+//     </Link>
+// );
 
 class App extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      buttonClicks: false,
-      projects: [
-        { id: 1, 
-          name: "Twitter Bot",
-          description: "Twitterbot tweets"
+      routes: [
+        { path: '/',
+          exact: true,
+          main: () => <Home/>
         },
-        { id: 2, 
-          name: "Drink Generator",
-          description: "Twitterbot tweets"
+        { path: '/about',
+          exact: true,
+          main: () => <About/>
         },
-        { id: 3, 
-          name: "NYT API",
-          description: "Twitterbot tweets"
+        { path: '/portfolio',
+          main: () => <Portfolio/>
         },
-        { id: 4, 
-          name: "Teafographic",
-          description: "Twitterbot tweets"
+        { path: '/contact',
+          main: () => <Contact/>
         }
-      ]
-    }
+      ],
+      projects: [
+        { path: '/twitterbot',
+          exact: true, 
+          name: 'Twitter Bot',
+          main: () => <Project/>
+        },
+        { path: '/hypertext',
+          name: 'Hypertext',
+          main: () => <Project/>
+        },
+        { path: '/outfitted',
+          name: 'Outfitted',
+          main: () => <Project/>
+        }
+      ],
+      buttonClicks: false,
+    };
     this.portfolioClick = this.portfolioClick.bind(this);
     this.listProjects = this.listProjects.bind(this);
   }
@@ -99,13 +80,13 @@ class App extends Component {
   portfolioClick(event) {
     event.preventDefault();
     console.log(event);
-    if(this.buttonClicks === true) {
-      console.log(this.buttonClicks);
-      return (listItems);
-    } else {
-      console.log("no");
-      console.log(this.buttonClicks);
-    }
+    // if(this.buttonClicks === true) {
+    //   console.log(this.buttonClicks);
+    //   return (listItems);
+    // } else {
+    //   console.log("no");
+    //   console.log(this.buttonClicks);
+    // }
   }
   render() {
     return (
@@ -123,7 +104,7 @@ class App extends Component {
               <Link to='/contact' className="aside-button">CONTACT</Link>
           </aside>
           <main id="children">
-            {routes.map((route, index) => (
+            {this.state.routes.map((route, index) => (
               <Route
                 key={index}
                 path={route.path}
@@ -131,7 +112,7 @@ class App extends Component {
                 component={route.main}
               />
             ))}
-            {projects.map((project, index) =>(
+            {this.state.projects.map((project, index) =>(
                 <Route
                   key={index}
                   path={project.path}
