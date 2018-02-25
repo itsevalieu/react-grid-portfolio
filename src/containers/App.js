@@ -38,16 +38,24 @@ class App extends Component {
       routes: [
         { path: '/',
           exact: true,
+          name: 'HOME',
+          className: 'aside-button',
           main: () => <Home/>
         },
         { path: '/about',
           exact: true,
+          name: 'ABOUT',
+          className: 'aside-button',
           main: () => <About/>
         },
         { path: '/portfolio',
+          name: 'PORTFOLIO',
+          className: 'aside-button',
           main: () => <Portfolio/>
         },
         { path: '/contact',
+          name: 'CONTACT',
+          className: 'aside-button',
           main: () => <Contact/>
         }
       ],
@@ -97,11 +105,9 @@ class App extends Component {
             <button className="hamburger-icon"><img src={hamburger} alt="hamburger icon"/></button>
           </header>
           <aside>
-              <Link to='/' className="aside-button">HOME</Link> 
-              <Link to='/about' className="aside-button">ABOUT ME</Link>
-              <Link to='/portfolio' onClick={this.listProjects} className="aside-button">PORTFOLIO</Link>
-              {this.portfolioClick}
-              <Link to='/contact' className="aside-button">CONTACT</Link>
+            {this.state.routes.map((route, index) =>(
+              <Link key={index} to={route.path} className={route.className}>{route.name}</Link>
+            ))}
           </aside>
           <main id="children">
             {this.state.routes.map((route, index) => (
