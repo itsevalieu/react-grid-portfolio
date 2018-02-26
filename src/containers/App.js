@@ -12,25 +12,6 @@ import Portfolio from '../children/Portfolio/Portfolio.jsx';
 import Contact from '../children/Contact/Contact.jsx';
 import Project from '../children/Portfolio/Projects.jsx';
 
-// const gallery = () => (
-//   <div>
-//     {projects.map(i => (
-//       <Link
-//         key={i.id}
-//         to={{
-//           pathname: `/project/${i.id}`
-//         }}
-//       >
-//       </Link>
-//     ))}
-//   </div>
-// );
-// const listItems = this.state.projects.map((project) =>
-//     <Link 
-//       to={this.state.project.path}>{this.state.project.name}
-//     </Link>
-// );
-
 class App extends Component {
   constructor(props) {
     super(props);

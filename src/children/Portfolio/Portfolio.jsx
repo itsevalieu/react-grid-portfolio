@@ -19,62 +19,62 @@ class Portfolio extends Component {
       projects: [
         { path: '/twitterbot',
           exact: true, 
+          className: 'button-description',
           name: 'Twitter Bot',
+          description: "Twitter bot live streaming and sentiment analysis.",
+          image: cptimg1,
+          alt: '#',
           main: () => <Project/>
         },
-        { path: '/hypertext',
-          name: 'Hypertext',
+        { path: '/drinkgenerator',
+          className: 'button-description',
+          name: 'Random Drink Generator',
+          description: "Randomly picks a drink off a menu for you.",
+          image: cptimg2,
+          alt: '#',
           main: () => <Project/>
         },
-        { path: '/outfitted',
-          name: 'Outfitted',
+        { path: '/nytreact',
+          className: 'button-description',
+          name: 'NYT API',
+          description: "Search New York Times for articles.",
+          image: cptimg3,
+          alt: '#',
+          main: () => <Project/>
+        },
+        { path: '/teafographic',
+          className: 'button-description',
+          name: 'Teafographic',
+          description: "Website for tea fanatics.",
+          image: cptimg4,
+          alt: '#',
           main: () => <Project/>
         }
       ]
-    }
+    };
     // this.onClick = this.onClick.bind(this);
   }
   render() {
     return(
       <Router>
-      <div className="portfolio">
-        <div className="page-heading">
-          <h1>My Portfolio</h1>
+        <div className="portfolio">
+          <div className="page-heading">
+            <h1>My Portfolio</h1>
+          </div>
+          <div className="project-list">
+            {this.state.projects.map((project, index) => (
+              <Link key={project.index} to={project.path}>
+                <button>
+                  <div className={project.className}>
+                    <p>{project.name}</p>
+                    <p>{project.description}</p>
+                  </div>
+                  <img src={project.image} alt={project.alt}/>
+                </button>
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="project-list">
-          <Link to='/twitterbot'>
-            <button>
-              <div className="button-description">
-                <p>Twitter Sentiment Analysis Bot</p>
-                <p>Twitter bot live streaming and sentiment analysis.</p>
-              </div>
-              <img src={cptimg1} alt="#"/>
-            </button>
-          </Link>
-          <button>
-            <div className="button-description">
-              <p>Drink Generator</p>
-              <p>Randomly picks a drink off a menu for you.</p>
-            </div>
-            <img src={cptimg2} alt="#"/>
-          </button>
-          <button>
-            <div className="button-description">
-              <p>NYT API</p>
-              <p>Search New York Times for articles.</p>
-            </div>
-            <img src={cptimg3} alt="#"/>
-          </button>
-          <button>
-            <div className="button-description">
-              <p>Teafographic</p>
-              <p>Website for tea fanatics.</p>
-            </div>
-            <img src={cptimg4} alt="#"/>
-          </button>
-         
-        </div>
-      </div>
       </Router>
     );
   }
