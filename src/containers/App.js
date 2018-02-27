@@ -43,15 +43,27 @@ class App extends Component {
       projects: [
         { path: '/twitterbot',
           exact: true, 
+          className: 'button-description',
           name: 'Twitter Bot',
+          description: "Twitter bot live streaming and sentiment analysis.",
           main: () => <Project/>
         },
-        { path: '/hypertext',
-          name: 'Hypertext',
+        { path: '/drinkgenerator',
+          className: 'button-description',
+          name: 'Random Drink Generator',
+          description: "Randomly picks a drink off a menu for you.",
           main: () => <Project/>
         },
-        { path: '/outfitted',
-          name: 'Outfitted',
+        { path: '/nytreact',
+          className: 'button-description',
+          name: 'NYT API',
+          description: "Search New York Times for articles.",
+          main: () => <Project/>
+        },
+        { path: '/teafographic',
+          className: 'button-description',
+          name: 'Teafographic',
+          description: "Website for tea fanatics.",
           main: () => <Project/>
         }
       ],
@@ -106,7 +118,7 @@ class App extends Component {
                   exact={project.exact}
                   component={project.main}
                 />
-              ))}
+            ))}
           </main>
           <footer><p>© 2018 EVA LIEU</p></footer>
         </div>
@@ -120,6 +132,10 @@ export default App;
 // Seriously need to fix the states and props. What is the top down components to render?
 // App (Aside, Main)
   // Portfolio -> Projects
+
+// From App, click on project link in sidebar, renders Route to specific Project
+// From Portfolio, click on project link, sends info back to App, which renders Route to specific Project
+
 
 
 
