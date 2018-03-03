@@ -8,7 +8,8 @@ class Home extends Component {
 		return(
 			<div className="home">
 			 	<div className="component-image"><img src={cptimg} alt="#"/></div>
-				HOME
+				<div>Eva L Lieu</div>
+				<div>Web Developer</div>
 			</div>
 		);
 	}

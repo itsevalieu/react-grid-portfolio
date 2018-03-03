@@ -34,6 +34,7 @@ class Project extends Component {
       ],
   render() {
     return(
+      <Route>
       <div className="project">
         <div className="page-description">
           <h1>Project Title</h1>
@@ -48,6 +49,7 @@ class Project extends Component {
         <div><p>Languages and Stack</p></div>
         <a href="/demo">Demo</a>
       </div>
+      </Route>
     );
   }
 }
