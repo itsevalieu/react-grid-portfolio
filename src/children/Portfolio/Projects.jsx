@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 import "./Projects.css";
 
 class Project extends Component {
@@ -31,25 +36,27 @@ class Project extends Component {
           description: "Website for tea fanatics.",
           main: () => <Project/>
         }
-      ],
+      ]
+    }
+  }
   render() {
     return(
-      <Route>
-      <div className="project">
-        <div className="page-description">
-          <h1>Project Title</h1>
-          <p>Description</p>
+      <Router>
+        <div className="project">
+          <div className="page-description">
+            <h1>Project Title</h1>
+            <p>Description</p>
+          </div>
+          <div className="project-description">
+            <h2>What</h2>
+            <h2>Why</h2>
+            <h2>How</h2>
+            <h2>So What?</h2>
+          </div>
+          <div><p>Languages and Stack</p></div>
+          <a href="/demo">Demo</a>
         </div>
-        <div className="project-description">
-          <h2>What</h2>
-          <h2>Why</h2>
-          <h2>How</h2>
-          <h2>So What?</h2>
-        </div>
-        <div><p>Languages and Stack</p></div>
-        <a href="/demo">Demo</a>
-      </div>
-      </Route>
+      </Router>
     );
   }
 }
