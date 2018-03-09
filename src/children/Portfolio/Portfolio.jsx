@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import {
   BrowserRouter as Router,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom';
 import "./Portfolio.css";
 

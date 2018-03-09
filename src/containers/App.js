@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './App.css';
 import hamburger from './hamburger.png';
-import Home from '../children/Home/Home.jsx';
-import About from '../children/About/About.jsx';
-import Portfolio from '../children/Portfolio/Portfolio.jsx';
-import Contact from '../children/Contact/Contact.jsx';
 import Project from '../children/Portfolio/Projects.jsx';
 
 class App extends Component {
@@ -19,25 +11,17 @@ class App extends Component {
       routes: [
         { path: '/',
           exact: true,
-          name: 'HOME',
-          className: 'aside-button',
-          main: () => <Home/>
+          name: 'HOME'
         },
         { path: '/about',
           exact: true,
-          name: 'ABOUT',
-          className: 'aside-button',
-          main: () => <About/>
+          name: 'ABOUT'
         },
         { path: '/portfolio',
-          name: 'PORTFOLIO',
-          className: 'aside-button',
-          main: () => <Portfolio/>
+          name: 'PORTFOLIO'
         },
         { path: '/contact',
-          name: 'CONTACT',
-          className: 'aside-button',
-          main: () => <Contact/>
+          name: 'CONTACT'
         }
       ],
       projects: [
@@ -91,7 +75,7 @@ class App extends Component {
   }
   render() {
     return (
-      <Router>
+     
         <div className="App">
           <header>
             <h1>EVA L. LIEU</h1>
@@ -99,11 +83,11 @@ class App extends Component {
           </header>
           <aside>
             {this.state.routes.map((route, index) =>(
-              <Link key={index} to={route.path} className={route.className}>{route.name}</Link>
+              <Link key={index} to={route.path} className="aside-button">{route.name}</Link>
             ))}
           </aside>
           <main id="children">
-            {this.state.routes.map((route, index) => (
+            {/*{this.state.routes.map((route, index) => (
               <Route
                 key={index}
                 path={route.path}
@@ -118,11 +102,11 @@ class App extends Component {
                   exact={project.exact}
                   component={project.main}
                 />
-            ))}
+            ))}*/}
+            {this.props.children}
           </main>
           <footer><p>© 2018 EVA LIEU</p></footer>
         </div>
-      </Router>
     );
   }
 }
