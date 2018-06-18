@@ -33,7 +33,7 @@ class Contact extends Component {
 		return(
 			<div className='contact'>
 			 	<div className='component-image'><img src={cptimg} alt='#'/></div>
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={this.handleSubmit} netlify>
 					<h1>Contact Me</h1>
 					<input type='text' placeholder='Full Name' name='name' value={this.state.name} onChange={this.handleChange}></input>
 					<input type='email' placeholder='Email Address' name='email' value={this.state.email} onChange={this.handleChange}></input>
